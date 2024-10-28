@@ -20,7 +20,7 @@ export default function Login() {
       <DropdownMenuTrigger asChild>
         <Button variant="ghost">Login</Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="mr-2 bg-transparent text-white">
+      <DropdownMenuContent className="profile-dropdown">
         <DropdownMenuCheckboxItem>
           <form className="flex gap-2 items-center" action={() => signInAction("google")}>
             <button type="submit">Google</button>
