@@ -1,9 +1,13 @@
 import { AudioLines } from "lucide-react";
 import Link from "next/link";
 import Form from "next/form";
-import Login from "./Login";
+import Login from "./auth/Login";
+import { auth } from "@/auth";
+import Profile from "./auth/Profile";
 
 export default async function Header() {
+  const session = await auth();
+
   return (
     <header className="flex justify-between items-center gap-3 p-4">
       <Link href="/" className="flex gap-1 items-center">
@@ -17,7 +21,7 @@ export default async function Header() {
           className="w-full border-white border-[1px] outline-white text-white bg-foreground p-2 rounded-md"
         />
       </Form>
-      <Login />
+      {session?.user ? <Profile session={session} /> : <Login />}
     </header>
   );
 }
