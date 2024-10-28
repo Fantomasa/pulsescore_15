@@ -1,6 +1,7 @@
 import { AudioLines } from "lucide-react";
 import Link from "next/link";
 import Form from "next/form";
+import Login from "./Login";
 
 export default async function Header() {
   return (
@@ -16,7 +17,7 @@ export default async function Header() {
           className="w-full border-white border-[1px] outline-white text-white bg-foreground p-2 rounded-md"
         />
       </Form>
-      <div>Login</div>
+      <Login />
     </header>
   );
 }
