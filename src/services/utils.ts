@@ -24,6 +24,8 @@ export function getErrorMessage(error: unknown) {
 }
 
 export function sortTournaments(tResult: TournamentsResult) {
+  const priorityCategories = ["England", "Germany", "Italy"];
+
   const categoryMap = new Map<string, { category: string; leagues: Array<{ name: string; seasonId: string }> }>();
 
   tResult.data.forEach((tournament) => {
@@ -36,5 +38,17 @@ export function sortTournaments(tResult: TournamentsResult) {
     categoryMap.get(category)!.leagues.push({ name, seasonId });
   });
 
-  return Array.from(categoryMap.values());
+  const categoryArray = Array.from(categoryMap.values());
+
+  categoryArray.sort((a, b) => {
+    const aIndex = priorityCategories.indexOf(a.category);
+    const bIndex = priorityCategories.indexOf(b.category);
+
+    if (aIndex === -1 && bIndex === -1) return 0;
+    if (aIndex === -1) return 1;
+    if (bIndex === -1) return -1;
+    return aIndex - bIndex;
+  });
+
+  return categoryArray;
 }

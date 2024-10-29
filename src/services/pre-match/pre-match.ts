@@ -3,6 +3,16 @@ import { fetcher, getErrorMessage, sortTournaments } from "../utils";
 const API_BASE_URL = process.env.API_BASE_URL;
 if (!API_BASE_URL) throw new Error("API_BASE_URL missing from .env.local file");
 
+export type LeagueType = {
+  name: string;
+  seasonId: string;
+};
+
+export type CategoryType = {
+  category: string;
+  leagues: Array<LeagueType>;
+};
+
 export type TournamentsResult = {
   total: number;
   data: {
@@ -28,6 +38,6 @@ export async function getTournaments() {
     return sortTournaments(data);
   } catch (error) {
     defaultTournamentsResult.error = getErrorMessage(error);
-    return defaultTournamentsResult;
+    return [];
   }
 }
