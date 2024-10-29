@@ -1,7 +1,7 @@
-import React from "react";
+import { getTournaments } from "@/services/pre-match/pre-match";
 
-function PreMatch() {
-  return <div>PreMatch</div>;
+export default async function PreMatch() {
+  const categories = await getTournaments();
+
+  return <div>{JSON.stringify(categories)}</div>;
 }
-
-export default PreMatch;

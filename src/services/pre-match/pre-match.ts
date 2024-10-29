@@ -1,4 +1,4 @@
-import { fetcher, getErrorMessage } from "../utils";
+import { fetcher, getErrorMessage, sortTournaments } from "../utils";
 
 const API_BASE_URL = process.env.API_BASE_URL;
 if (!API_BASE_URL) throw new Error("API_BASE_URL missing from .env.local file");
@@ -23,9 +23,9 @@ const defaultTournamentsResult: TournamentsResult = {
 export async function getTournaments() {
   try {
     if (!API_BASE_URL) throw new Error("API_BASE_URL missing from .env.local file");
-    const data = await fetcher(API_BASE_URL, "tournaments");
+    const data = await fetcher<TournamentsResult>(API_BASE_URL, "tournaments");
 
-    return data;
+    return sortTournaments(data);
   } catch (error) {
     defaultTournamentsResult.error = getErrorMessage(error);
     return defaultTournamentsResult;
