@@ -1,20 +1,29 @@
+"use client";
+
 import { CategoryType } from "@/services/pre-match/pre-match";
-import React from "react";
+import React, { useState } from "react";
 import League from "./League";
+import { ChevronDown, ChevronRight } from "lucide-react";
 
 export default function Category({ category }: { category: CategoryType }) {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <li key={category.category} className="my-1.5">
-      <span className="flex items-center gap-1.5">
-        {/* <Image src={`/tournament/default.png`} alt={category.category} width={12} height={12} /> */}
-        {category.category}
-      </span>
+      <button className="flex items-center gap-2" onClick={() => setIsOpen(!isOpen)}>
+        <div className="flex items-center gap-1.5">
+          {isOpen ? <ChevronDown size={10} /> : <ChevronRight size={10} />}
+          <span>{category.category}</span>
+        </div>
+      </button>
 
-      <ul className="pl-6">
-        {category.leagues.map((league) => (
-          <League key={league.seasonId} league={league} />
-        ))}
-      </ul>
+      {isOpen && (
+        <ul className="pl-5 ml-[4px] border-l">
+          {category.leagues.map((league) => (
+            <League key={league.seasonId} league={league} />
+          ))}
+        </ul>
+      )}
     </li>
   );
 }
