@@ -70,7 +70,7 @@ body {
   }
 
   .profile-dropdown {
-    @apply mr-2 bg-transparent text-white;
+    @apply mr-2 bg-foreground text-white;
   }
 }
 
