@@ -7,7 +7,7 @@ export default function League({ league }: { league: LeagueType }) {
 
   return (
     <li className={`hover:text-primary mt-2 text-xs md:text-sm ${params.seasonId === league.seasonId ? "text-primary" : ""}`}>
-      <Link href={`/pre-match/${league.seasonId}`}>{league.name}</Link>
+      <Link href={`/pre-match/${league.seasonId}/table`}>{league.name}</Link>
     </li>
   );
 }

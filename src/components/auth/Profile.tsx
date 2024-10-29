@@ -18,7 +18,7 @@ export default function Profile({ session }: { session: Session }) {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Avatar className="hover:cursor-pointer">
+        <Avatar className="hover:cursor-pointer size-8 md:size-10">
           <AvatarImage src={session.user?.image ? session.user?.image : ""} />
           <AvatarFallback>{session?.user?.name ? session?.user?.name.substring(0, 2).toUpperCase() : ""}</AvatarFallback>
         </Avatar>
