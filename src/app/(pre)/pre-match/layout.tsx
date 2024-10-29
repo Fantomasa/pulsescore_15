@@ -13,7 +13,7 @@ export default async function Layout({
       <div className="w-1/3">
         <SideNav categories={categories} />
       </div>
-      <div className="w-2/3">{children}</div>
+      <div className="w-2/3 p-1">{children}</div>
     </div>
   );
 }

@@ -9,8 +9,8 @@ export default function Category({ category }: { category: CategoryType }) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <li key={category.category} className="my-1.5">
-      <button className="flex items-center gap-2" onClick={() => setIsOpen(!isOpen)}>
+    <li key={category.category} className="my-1.5 bg-foreground p-1 rounded-md hover:bg-foreground/50">
+      <button className="flex items-center gap-2 w-full" onClick={() => setIsOpen(!isOpen)}>
         <div className="flex items-center gap-1.5">
           {isOpen ? <ChevronDown size={10} /> : <ChevronRight size={10} />}
           <span>{category.category}</span>
@@ -18,7 +18,7 @@ export default function Category({ category }: { category: CategoryType }) {
       </button>
 
       {isOpen && (
-        <ul className="pl-5 ml-[4px] border-l">
+        <ul className="pl-5 ml-[4px] border-l p-2">
           {category.leagues.map((league) => (
             <League key={league.seasonId} league={league} />
           ))}
