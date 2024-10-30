@@ -55,7 +55,7 @@ export default function TableComponent({
         </span>
       </div>
       <Table>
-        <TableCaption>A list of your recent invoices.</TableCaption>
+        <TableCaption></TableCaption>
         <TableHeader>
           <TableRow>
             <TableHead>Pos</TableHead>

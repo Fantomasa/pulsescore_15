@@ -197,3 +197,86 @@ export type TournamentsResult = {
   }[];
   error?: string;
 };
+
+export type FixturesResult = {
+  total: number;
+  data: {
+    seasonId: string;
+    matches: Array<FixtureMatchSchema>;
+  }[];
+  error?: string;
+};
+
+export type FixtureMatchSchema = {
+  _doc: string;
+  _id: number;
+  _sid: number;
+  _rcid: number;
+  _tid: number;
+  _utid: number;
+  time: {
+    _doc: string;
+    time: string;
+    date: string;
+    tz: string;
+    tzoffset: number;
+    uts: number;
+  };
+  round: number;
+  roundname: {
+    _doc: string;
+    _id: number;
+    name: number;
+  };
+  week: number;
+  result: {
+    home: null;
+    away: null;
+    period: string;
+    winner: string;
+  };
+  periods: null;
+  _seasonid: number;
+  teams: {
+    home: {
+      _doc: string;
+      _id: number;
+      _sid: number;
+      uid: number;
+      virtual: boolean;
+      name: string;
+      mediumname: string;
+      abbr: string;
+      nickname: null;
+      iscountry: boolean;
+      haslogo: boolean;
+    };
+    away: {
+      _doc: string;
+      _id: number;
+      _sid: number;
+      uid: number;
+      virtual: boolean;
+      name: string;
+      mediumname: string;
+      abbr: string;
+      nickname: null;
+      iscountry: boolean;
+      haslogo: boolean;
+    };
+  };
+  neutralground: boolean;
+  comment: null;
+  status: null;
+  tobeannounced: boolean;
+  postponed: boolean;
+  canceled: boolean;
+  inlivescore: boolean;
+  stadiumid: number;
+  bestof: null;
+  walkover: boolean;
+  retired: boolean;
+  disqualified: boolean;
+  matchdifficultyrating: null;
+  numberofperiods: number;
+};
