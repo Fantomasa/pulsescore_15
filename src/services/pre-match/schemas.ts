@@ -1,4 +1,4 @@
-export type TableSchema = {
+export type TableResult = {
   total: number;
   data: {
     _doc: string;
@@ -63,116 +63,7 @@ export type TableSchema = {
       name: string;
     };
     totalrows: number;
-    tablerows: Array<
-      | {
-          _doc: string;
-          _id: number;
-          promotion: {
-            _doc: string;
-            _id: number;
-            name: string;
-            shortname: string;
-            cssclass: string;
-            position: number;
-          };
-          changeTotal: number;
-          changeHome: number;
-          changeAway: number;
-          drawTotal: number;
-          drawHome: number;
-          drawAway: number;
-          goalDiffTotal: number;
-          goalDiffHome: number;
-          goalDiffAway: number;
-          goalsAgainstTotal: number;
-          goalsAgainstHome: number;
-          goalsAgainstAway: number;
-          goalsForTotal: number;
-          goalsForHome: number;
-          goalsForAway: number;
-          lossTotal: number;
-          lossHome: number;
-          lossAway: number;
-          total: number;
-          home: number;
-          away: number;
-          pointsTotal: number;
-          pointsHome: number;
-          pointsAway: number;
-          pos: number;
-          posHome: number;
-          posAway: number;
-          sortPositionTotal: number;
-          sortPositionHome: number;
-          sortPositionAway: number;
-          team: {
-            _doc: string;
-            _id: number;
-            _sid: number;
-            uid: number;
-            virtual: boolean;
-            name: string;
-            mediumname: string;
-            abbr: string;
-            nickname: null;
-            iscountry: boolean;
-            haslogo: boolean;
-          };
-          winTotal: number;
-          winHome: number;
-          winAway: number;
-        }
-      | {
-          _doc: string;
-          _id: number;
-          changeTotal: number;
-          changeHome: number;
-          changeAway: number;
-          drawTotal: number;
-          drawHome: number;
-          drawAway: number;
-          goalDiffTotal: number;
-          goalDiffHome: number;
-          goalDiffAway: number;
-          goalsAgainstTotal: number;
-          goalsAgainstHome: number;
-          goalsAgainstAway: number;
-          goalsForTotal: number;
-          goalsForHome: number;
-          goalsForAway: number;
-          lossTotal: number;
-          lossHome: number;
-          lossAway: number;
-          total: number;
-          home: number;
-          away: number;
-          pointsTotal: number;
-          pointsHome: number;
-          pointsAway: number;
-          pos: number;
-          posHome: number;
-          posAway: number;
-          sortPositionTotal: number;
-          sortPositionHome: number;
-          sortPositionAway: number;
-          team: {
-            _doc: string;
-            _id: number;
-            _sid: number;
-            uid: number;
-            virtual: boolean;
-            name: string;
-            mediumname: string;
-            abbr: string;
-            nickname: null;
-            iscountry: boolean;
-            haslogo: boolean;
-          };
-          winTotal: number;
-          winHome: number;
-          winAway: number;
-        }
-    >;
+    tablerows: Array<TableRow>;
     tournamentid: number;
     seasontype: string;
     seasontypename: string;
@@ -219,6 +110,66 @@ export type TableSchema = {
       column: string;
     }[];
   }[];
+  error?: string;
+};
+
+export type TableRow = {
+  _doc: string;
+  _id: number;
+  promotion: {
+    _doc: string;
+    _id: number;
+    name: string;
+    shortname: string;
+    cssclass: string;
+    position: number;
+  };
+  changeTotal: number;
+  changeHome: number;
+  changeAway: number;
+  drawTotal: number;
+  drawHome: number;
+  drawAway: number;
+  goalDiffTotal: number;
+  goalDiffHome: number;
+  goalDiffAway: number;
+  goalsAgainstTotal: number;
+  goalsAgainstHome: number;
+  goalsAgainstAway: number;
+  goalsForTotal: number;
+  goalsForHome: number;
+  goalsForAway: number;
+  lossTotal: number;
+  lossHome: number;
+  lossAway: number;
+  total: number;
+  home: number;
+  away: number;
+  pointsTotal: number;
+  pointsHome: number;
+  pointsAway: number;
+  pos: number;
+  posHome: number;
+  posAway: number;
+  sortPositionTotal: number;
+  sortPositionHome: number;
+  sortPositionAway: number;
+  team: {
+    _doc: string;
+    _id: number;
+    _sid: number;
+    uid: number;
+    virtual: boolean;
+    name: string;
+    mediumname: string;
+    abbr: string;
+    nickname: null;
+    iscountry: boolean;
+    haslogo: boolean;
+  };
+  winTotal: number;
+  winHome: number;
+  winAway: number;
 };
 
 export type LeagueType = {
@@ -240,11 +191,5 @@ export type TournamentsResult = {
     seasonId: string;
     sport: string;
   }[];
-  error?: string;
-};
-
-export type TableResult = {
-  total: number;
-  data: TableSchema[];
   error?: string;
 };

@@ -1,7 +1,8 @@
 "use client";
 import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import { TableRow as IncomingTableRow } from "@/services/pre-match/schemas";
 
-export default function TableComponent() {
+export default function TableComponent({ tableRows }: { tableRows: Array<IncomingTableRow> }) {
   return (
     <Table>
       <TableCaption>A list of your recent invoices.</TableCaption>
@@ -19,17 +20,19 @@ export default function TableComponent() {
         </TableRow>
       </TableHeader>
       <TableBody>
-        <TableRow>
-          <TableCell>1</TableCell>
-          <TableCell></TableCell>
-          <TableCell>Ludogorec Razgrad</TableCell>
-          <TableCell>12</TableCell>
-          <TableCell>11</TableCell>
-          <TableCell>1</TableCell>
-          <TableCell>0</TableCell>
-          <TableCell>21</TableCell>
-          <TableCell>34</TableCell>
-        </TableRow>
+        {tableRows.map((row) => (
+          <TableRow key={row._id}>
+            <TableCell>{row.pos}</TableCell>
+            <TableCell></TableCell>
+            <TableCell>{row.team.name}</TableCell>
+            <TableCell>{row.total}</TableCell>
+            <TableCell>{row.winTotal}</TableCell>
+            <TableCell>{row.drawTotal}</TableCell>
+            <TableCell>{row.lossTotal}</TableCell>
+            <TableCell>{row.goalDiffTotal}</TableCell>
+            <TableCell>{row.pointsTotal}</TableCell>
+          </TableRow>
+        ))}
       </TableBody>
     </Table>
   );
