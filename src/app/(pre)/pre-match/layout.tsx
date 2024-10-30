@@ -1,4 +1,4 @@
-import SideNav from "@/components/PreMatch/SideNav";
+import SideNav from "@/components/PreMatch/SideNav/SideNav";
 import { getTournaments } from "@/services/pre-match/pre-match";
 
 export default async function Layout({
