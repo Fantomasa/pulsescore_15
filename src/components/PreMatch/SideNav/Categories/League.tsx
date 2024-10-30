@@ -1,4 +1,4 @@
-import { LeagueType } from "@/services/pre-match/pre-match";
+import { LeagueType } from "@/services/pre-match/schemas";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import { useSideNav } from "../context";

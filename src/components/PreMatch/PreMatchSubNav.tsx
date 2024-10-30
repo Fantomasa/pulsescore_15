@@ -8,7 +8,6 @@ export default function PreMatchSubNav() {
   const seasonId = params.seasonId;
 
   const pathname = usePathname();
-  console.log({ pathname });
 
   return (
     <nav>

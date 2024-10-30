@@ -1,7 +1,7 @@
-import { TournamentsResult } from "./pre-match/pre-match";
+import { TournamentsResult } from "./pre-match/schemas";
 
 export async function fetcher<T>(baseURL: string, path: string, query: string = ""): Promise<T> {
-  const url = `${baseURL}/${path}?${query}`;
+  const url = `${baseURL}${path}?${query}`;
   // console.log({ fetcherURL: url }); //*** */
 
   const fetchResult = await fetch(url);

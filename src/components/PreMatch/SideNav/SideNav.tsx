@@ -1,6 +1,6 @@
 "use client";
 
-import { CategoryType } from "@/services/pre-match/pre-match";
+import { CategoryType } from "@/services/pre-match/schemas";
 import Category from "./Categories/Category";
 import { Button } from "../../ui/button";
 import { ArrowLeft } from "lucide-react";

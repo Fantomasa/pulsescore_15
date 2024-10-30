@@ -1,0 +1,250 @@
+export type TableSchema = {
+  total: number;
+  data: {
+    _doc: string;
+    _id: string;
+    parenttableid: null;
+    leaguetypeid: null;
+    parenttableids: "{}";
+    seasonid: string;
+    maxrounds: number;
+    currentround: number;
+    presentationid: number;
+    name: string;
+    abbr: string;
+    groupname: null;
+    tournament: {
+      _doc: string;
+      _id: number;
+      _sid: number;
+      _rcid: number;
+      _isk: number;
+      _tid: number;
+      _utid: number;
+      _gender: string;
+      name: string;
+      abbr: string;
+      ground: null;
+      friendly: boolean;
+      seasonid: number;
+      currentseason: number;
+      year: string;
+      seasontype: string;
+      seasontypename: string;
+      seasontypeunique: string;
+      livetable: number;
+      cuprosterid: null;
+      roundbyround: boolean;
+      tournamentlevelorder: number;
+      tournamentlevelname: string;
+      outdated: boolean;
+    };
+    realcategory: {
+      _doc: string;
+      _id: number;
+      _sid: number;
+      _rcid: number;
+      name: string;
+      cc: {
+        _doc: string;
+        _id: number;
+        a2: string;
+        name: string;
+        a3: string;
+        ioc: string;
+        continentid: number;
+        continent: string;
+        population: number;
+      };
+    };
+    rules: {
+      _doc: string;
+      _id: number;
+      name: string;
+    };
+    totalrows: number;
+    tablerows: Array<
+      | {
+          _doc: string;
+          _id: number;
+          promotion: {
+            _doc: string;
+            _id: number;
+            name: string;
+            shortname: string;
+            cssclass: string;
+            position: number;
+          };
+          changeTotal: number;
+          changeHome: number;
+          changeAway: number;
+          drawTotal: number;
+          drawHome: number;
+          drawAway: number;
+          goalDiffTotal: number;
+          goalDiffHome: number;
+          goalDiffAway: number;
+          goalsAgainstTotal: number;
+          goalsAgainstHome: number;
+          goalsAgainstAway: number;
+          goalsForTotal: number;
+          goalsForHome: number;
+          goalsForAway: number;
+          lossTotal: number;
+          lossHome: number;
+          lossAway: number;
+          total: number;
+          home: number;
+          away: number;
+          pointsTotal: number;
+          pointsHome: number;
+          pointsAway: number;
+          pos: number;
+          posHome: number;
+          posAway: number;
+          sortPositionTotal: number;
+          sortPositionHome: number;
+          sortPositionAway: number;
+          team: {
+            _doc: string;
+            _id: number;
+            _sid: number;
+            uid: number;
+            virtual: boolean;
+            name: string;
+            mediumname: string;
+            abbr: string;
+            nickname: null;
+            iscountry: boolean;
+            haslogo: boolean;
+          };
+          winTotal: number;
+          winHome: number;
+          winAway: number;
+        }
+      | {
+          _doc: string;
+          _id: number;
+          changeTotal: number;
+          changeHome: number;
+          changeAway: number;
+          drawTotal: number;
+          drawHome: number;
+          drawAway: number;
+          goalDiffTotal: number;
+          goalDiffHome: number;
+          goalDiffAway: number;
+          goalsAgainstTotal: number;
+          goalsAgainstHome: number;
+          goalsAgainstAway: number;
+          goalsForTotal: number;
+          goalsForHome: number;
+          goalsForAway: number;
+          lossTotal: number;
+          lossHome: number;
+          lossAway: number;
+          total: number;
+          home: number;
+          away: number;
+          pointsTotal: number;
+          pointsHome: number;
+          pointsAway: number;
+          pos: number;
+          posHome: number;
+          posAway: number;
+          sortPositionTotal: number;
+          sortPositionHome: number;
+          sortPositionAway: number;
+          team: {
+            _doc: string;
+            _id: number;
+            _sid: number;
+            uid: number;
+            virtual: boolean;
+            name: string;
+            mediumname: string;
+            abbr: string;
+            nickname: null;
+            iscountry: boolean;
+            haslogo: boolean;
+          };
+          winTotal: number;
+          winHome: number;
+          winAway: number;
+        }
+    >;
+    tournamentid: number;
+    seasontype: string;
+    seasontypename: string;
+    seasontypeunique: string;
+    start: {
+      _doc: string;
+      time: string;
+      date: string;
+      tz: string;
+      tzoffset: number;
+      uts: number;
+    };
+    end: {
+      _doc: string;
+      time: string;
+      date: string;
+      tz: string;
+      tzoffset: number;
+      uts: number;
+    };
+    roundbyround: boolean;
+    order: number;
+    set: {
+      id: number;
+      name: string;
+      headers: number[];
+    }[];
+    header: {
+      id: number;
+      name: string;
+      column: string;
+      tooltip: string;
+      datapriority: string;
+    }[];
+    matchtype: {
+      _doc: string;
+      _id: number;
+      settypeid: number;
+      column: string;
+    }[];
+    tabletype: {
+      _doc: string;
+      _id: number;
+      column: string;
+    }[];
+  }[];
+};
+
+export type LeagueType = {
+  name: string;
+  seasonId: string;
+};
+
+export type CategoryType = {
+  category: string;
+  leagues: Array<LeagueType>;
+};
+
+export type TournamentsResult = {
+  total: number;
+  data: {
+    id: number;
+    name: string;
+    category: string;
+    seasonId: string;
+    sport: string;
+  }[];
+  error?: string;
+};
+
+export type TableResult = {
+  total: number;
+  data: TableSchema[];
+  error?: string;
+};

@@ -1,6 +1,6 @@
 "use client";
 
-import { CategoryType } from "@/services/pre-match/pre-match";
+import { CategoryType } from "@/services/pre-match/schemas";
 import React, { useState } from "react";
 import League from "./League";
 import { ChevronDown, ChevronRight } from "lucide-react";
