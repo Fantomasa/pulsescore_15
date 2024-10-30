@@ -1,5 +1,6 @@
 import SideNav from "@/components/PreMatch/SideNav/SideNav";
 import { getTournaments } from "@/services/pre-match/pre-match";
+import { SideNavProvider } from "@/components/PreMatch/SideNav/context";
 
 export default async function Layout({
   children
@@ -10,10 +11,12 @@ export default async function Layout({
 
   return (
     <div className="flex">
-      <div className="w-1/3">
+      {/* <div className="w-1/3"> */}
+      <SideNavProvider>
         <SideNav categories={categories} />
-      </div>
-      <div className="w-2/3 p-1">{children}</div>
+      </SideNavProvider>
+      {/* </div> */}
+      <div className="w-full p-1">{children}</div>
     </div>
   );
 }

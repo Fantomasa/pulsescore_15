@@ -2,30 +2,27 @@
 
 import { CategoryType } from "@/services/pre-match/pre-match";
 import Category from "./Categories/Category";
-import { useState } from "react";
 import { Button } from "../../ui/button";
 import { ArrowLeft } from "lucide-react";
-import { SideNavProvider } from "./context";
+import { useSideNav } from "./context";
 
 export default function SideNav({ categories }: { categories: CategoryType[] }) {
-  const [isOpen, setIsOpen] = useState(true);
+  const { isSideNavOpen, toggleSideNav } = useSideNav();
 
   return (
-    <SideNavProvider>
-      <div className="flex gap-2">
-        <ul
-          className={`text-left justify-start fixed md:relative ${
-            isOpen ? "left-0" : "-left-full"
-          } transition-all duration-300 w-1/3 md:w-auto shadow-lg md:shadow-none`}
-        >
-          {categories.map((category) => (
-            <Category key={category.category} category={category} />
-          ))}
-        </ul>
-        <Button size="sm" onClick={() => setIsOpen(!isOpen)}>
-          <ArrowLeft /> <p>Leagues</p>
-        </Button>
-      </div>
-    </SideNavProvider>
+    <div className="flex gap-2">
+      <ul
+        className={`text-left justify-start fixed md:relative ${
+          isSideNavOpen ? "left-0" : "-left-full"
+        } transition-all duration-300 w-1/3 md:w-auto shadow-lg md:shadow-none mt-10 z-10 rounded-md`}
+      >
+        {categories.map((category) => (
+          <Category key={category.category} category={category} />
+        ))}
+      </ul>
+      <Button size="sm" variant={"ghost"} className={`fixed z-1 mt-2 md:flex text-xs`} onClick={() => toggleSideNav()}>
+        <ArrowLeft /> <p>Leagues</p>
+      </Button>
+    </div>
   );
 }

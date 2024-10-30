@@ -9,7 +9,7 @@ interface SideNavContextType {
 const SideNavContext = createContext<SideNavContextType | undefined>(undefined);
 
 export const SideNavProvider = ({ children }: { children: ReactNode }) => {
-  const [isSideNavOpen, setSideNavOpen] = useState(false);
+  const [isSideNavOpen, setSideNavOpen] = useState(true);
 
   const toggleSideNav = () => setSideNavOpen((prev) => !prev);
 
