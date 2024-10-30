@@ -3,7 +3,7 @@ import Category from "./Categories/Category";
 
 export default function SideNav({ categories }: { categories: CategoryType[] }) {
   return (
-    <ul>
+    <ul className="text-left justify-start">
       {categories.map((category) => (
         <Category key={category.category} category={category} />
       ))}
