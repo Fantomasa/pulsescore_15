@@ -3,7 +3,7 @@ import React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-const acitveClass = "text-primary underline";
+const acitveClass = "text-primary bg-secondary";
 
 export default function Nav() {
   const pathname = usePathname();
@@ -11,7 +11,7 @@ export default function Nav() {
   return (
     <nav className="flex gap-4 justify-between items-center font-bold">
       <NavLink href="/pre-match" pathname={pathname}>
-        Events
+        Leagues
       </NavLink>
       <NavLink href="/live-score" pathname={pathname}>
         Live
