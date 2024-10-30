@@ -13,14 +13,14 @@ export default function SideNav({ categories }: { categories: CategoryType[] }) 
       <ul
         className={`text-left justify-start fixed md:relative ${
           isSideNavOpen ? "left-0" : "-left-full"
-        } bg-foreground md:left-0 transition-all duration-300 w-1/3 md:w-auto shadow-lg md:shadow-none mt-12 z-10 rounded-md overflow-y-auto max-h-[80vh] md:max-h-fit md:mr-2`}
+        } bg-foreground md:left-0 transition-all duration-300 w-1/3 md:w-auto shadow-lg md:shadow-none mt-12 z-10 rounded-md overflow-y-auto max-h-[80vh] md:max-h-fit md:mr-2 border`}
       >
         {categories.map((category) => (
           <Category key={category.category} category={category} />
         ))}
       </ul>
       <button
-        className={`flex items-center gap-1 fixed z-10 mt-2 text-xs md:hidden bg-foreground/80 rounded-md p-2`}
+        className={`flex items-center gap-1 fixed z-10 mt-2 text-xs md:hidden bg-foreground/80 rounded-md p-2 border`}
         onClick={() => toggleSideNav()}
       >
         <ArrowLeft size={15} /> <p>Leagues</p>

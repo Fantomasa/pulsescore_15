@@ -10,7 +10,7 @@ export default async function TablePage({ params }: { params: Promise<{ seasonId
 
   return (
     <Transition>
-      <TableComponent tableRows={tableResult.data[0].tablerows} />;
+      <TableComponent tableRows={tableResult.data[0].tablerows} />
     </Transition>
   );
 }
