@@ -1,4 +1,4 @@
-import SubNav from "@/components/PreMatch/SubNav";
+import PreMatchSubNav from "@/components/PreMatch/PreMatchSubNav";
 
 export default async function Layout({
   children
@@ -7,7 +7,7 @@ export default async function Layout({
 }>) {
   return (
     <div className="block">
-      <SubNav />
+      <PreMatchSubNav />
       <div>{children}</div>
     </div>
   );

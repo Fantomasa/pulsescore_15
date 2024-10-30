@@ -6,7 +6,7 @@ import { Badge } from "../ui/badge";
 
 const activeClassName = "bg-primary text-white hover:text-black hover:bg-white";
 
-export default function SubNav() {
+export default function PreMatchSubNav() {
   const params = useParams<{ seasonId: string }>();
   const seasonId = params.seasonId;
 
