@@ -13,50 +13,8 @@ export type TableResult = {
     name: string;
     abbr: string;
     groupname: null;
-    tournament: {
-      _doc: string;
-      _id: number;
-      _sid: number;
-      _rcid: number;
-      _isk: number;
-      _tid: number;
-      _utid: number;
-      _gender: string;
-      name: string;
-      abbr: string;
-      ground: null;
-      friendly: boolean;
-      seasonid: number;
-      currentseason: number;
-      year: string;
-      seasontype: string;
-      seasontypename: string;
-      seasontypeunique: string;
-      livetable: number;
-      cuprosterid: null;
-      roundbyround: boolean;
-      tournamentlevelorder: number;
-      tournamentlevelname: string;
-      outdated: boolean;
-    };
-    realcategory: {
-      _doc: string;
-      _id: number;
-      _sid: number;
-      _rcid: number;
-      name: string;
-      cc: {
-        _doc: string;
-        _id: number;
-        a2: string;
-        name: string;
-        a3: string;
-        ioc: string;
-        continentid: number;
-        continent: string;
-        population: number;
-      };
-    };
+    tournament: TournamentSchema;
+    realcategory: CategorySchema;
     rules: {
       _doc: string;
       _id: number;
@@ -111,6 +69,52 @@ export type TableResult = {
     }[];
   }[];
   error?: string;
+};
+
+export type TournamentSchema = {
+  _doc: string;
+  _id: number;
+  _sid: number;
+  _rcid: number;
+  _isk: number;
+  _tid: number;
+  _utid: number;
+  _gender: string;
+  name: string;
+  abbr: string;
+  ground: null;
+  friendly: boolean;
+  seasonid: number;
+  currentseason: number;
+  year: string;
+  seasontype: string;
+  seasontypename: string;
+  seasontypeunique: string;
+  livetable: number;
+  cuprosterid: null;
+  roundbyround: boolean;
+  tournamentlevelorder: number;
+  tournamentlevelname: string;
+  outdated: boolean;
+};
+
+export type CategorySchema = {
+  _doc: string;
+  _id: number;
+  _sid: number;
+  _rcid: number;
+  name: string;
+  cc: {
+    _doc: string;
+    _id: number;
+    a2: string;
+    name: string;
+    a3: string;
+    ioc: string;
+    continentid: number;
+    continent: string;
+    population: number;
+  };
 };
 
 export type TableRow = {

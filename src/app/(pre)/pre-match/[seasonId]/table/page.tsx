@@ -23,9 +23,12 @@ export default async function TablePage({ params }: { params: Promise<{ seasonId
     );
   }
 
+  const categoryData = tableResult.data[0].realcategory;
+  const tournametData = tableResult.data[0].tournament;
+
   return (
     <Transition>
-      <TableComponent tableRows={tableResult.data[0].tablerows} />
+      <TableComponent categoryData={categoryData} tournamentData={tournametData} tableRows={tableResult.data[0].tablerows} />
     </Transition>
   );
 }
