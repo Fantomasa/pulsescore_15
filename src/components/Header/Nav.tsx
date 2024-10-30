@@ -1,4 +1,5 @@
 "use client";
+import React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -9,17 +10,25 @@ export default function Nav() {
 
   return (
     <nav className="flex gap-4 justify-between items-center font-bold">
-      <Link
-        className={`p-2 bg-foreground rounded-md items-center border hover:text-primary hover:underline ${
-          pathname.includes("pre-match") ? acitveClass : ""
-        }`}
-        href="/pre-match"
-      >
-        PreMatch
-      </Link>
-      <Link className={`hover:text-primary hover:underline ${pathname.includes("live-score") ? acitveClass : ""}`} href="/live-score">
+      <NavLink href="/pre-match" pathname={pathname}>
+        Events
+      </NavLink>
+      <NavLink href="/live-score" pathname={pathname}>
         Live
-      </Link>
+      </NavLink>
     </nav>
+  );
+}
+
+function NavLink({ href, pathname, children }: { href: string; pathname: string; children: React.ReactNode }) {
+  return (
+    <Link
+      className={`p-2 bg-foreground rounded-md items-center border hover:text-primary hover:bg-secondary ${
+        pathname.includes(href) ? acitveClass : ""
+      }`}
+      href={href}
+    >
+      {children}
+    </Link>
   );
 }
