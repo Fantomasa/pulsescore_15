@@ -17,13 +17,13 @@ export default function Category({ category }: { category: CategoryType }) {
         </div>
       </button>
 
-      {isOpen && (
+      <div className={`overflow-hidden transition-all duration-300 ${isOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0"}`}>
         <ul className="pl-5 ml-[4px] border-l p-2">
           {category.leagues.map((league) => (
             <League key={league.seasonId} league={league} />
           ))}
         </ul>
-      )}
+      </div>
     </li>
   );
 }

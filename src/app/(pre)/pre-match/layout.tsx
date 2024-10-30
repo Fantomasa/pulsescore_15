@@ -10,7 +10,7 @@ export default async function Layout({
   const categories = await getTournaments();
 
   return (
-    <div className="flex">
+    <div className="flex md:px-2">
       {/* <div className="w-1/3"> */}
       <SideNavProvider>
         <SideNav categories={categories} />

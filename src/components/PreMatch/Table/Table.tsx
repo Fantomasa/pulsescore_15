@@ -9,7 +9,7 @@ export default function TableComponent({ tableRows }: { tableRows: Array<Incomin
       <TableHeader>
         <TableRow>
           <TableHead>Pos</TableHead>
-          <TableHead></TableHead>
+          <TableHead>Ch</TableHead>
           <TableHead>Team</TableHead>
           <TableHead>P</TableHead>
           <TableHead>W</TableHead>
@@ -23,7 +23,7 @@ export default function TableComponent({ tableRows }: { tableRows: Array<Incomin
         {tableRows.map((row) => (
           <TableRow key={row._id}>
             <TableCell>{row.pos}</TableCell>
-            <TableCell></TableCell>
+            <TableCell>{row.changeTotal}</TableCell>
             <TableCell>{row.team.name}</TableCell>
             <TableCell>{row.total}</TableCell>
             <TableCell>{row.winTotal}</TableCell>
