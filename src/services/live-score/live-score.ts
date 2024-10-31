@@ -9,10 +9,10 @@ const defaultLiveEventsResult: LiveEventsResult = {
   data: []
 };
 
-export async function getLiveEvents() {
+export async function getLiveEvents(sport: string) {
   try {
     if (!API_LIVE_BASE_URL) throw new Error("API_LIVE_BASE_URL missing from .env.local file");
-    const data = await fetcher<LiveEventsResult>(API_LIVE_BASE_URL, "/live-events", "sport=football&markets=0");
+    const data = await fetcher<LiveEventsResult>(API_LIVE_BASE_URL, "/live-events", `sport=${sport}&markets=0`);
 
     return data;
   } catch (error) {
