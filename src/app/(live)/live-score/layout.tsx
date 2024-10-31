@@ -1,4 +1,5 @@
 import NavComponent from "@/components/Live/Nav";
+import Transition from "@/components/Transition";
 
 export default async function Layout({
   children
@@ -10,7 +11,9 @@ export default async function Layout({
       <div className="w-2/3 mx-auto my-2">
         <NavComponent />
       </div>
-      <div className="w-full px-4">{children}</div>
+      <div className="w-full px-4">
+        <Transition>{children}</Transition>
+      </div>
     </div>
   );
 }

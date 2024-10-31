@@ -10,16 +10,18 @@ export default async function TablePage({ params }: { params: Promise<{ seasonId
 
   if (tableResult.data.length <= 0) {
     return (
-      <div className="flex flex-col text-lg mx-auto justify-center text-center">
-        <span>Selected League don&apos;t have Table.</span>
-        <span className="flex gap-2 text-center mx-auto">
-          You can see the
-          <Link className="flex items-center gap-1 underline underline-offset-2 text-primary" href={`/pre-match/${seasonId}/fixtures`}>
-            fixtures
-            <ArrowRight />
-          </Link>
-        </span>
-      </div>
+      <Transition>
+        <div className="flex flex-col text-lg mx-auto justify-center text-center">
+          <span>Selected League don&apos;t have Table.</span>
+          <span className="flex gap-2 text-center mx-auto">
+            You can see the
+            <Link className="flex items-center gap-1 underline underline-offset-2 text-primary" href={`/pre-match/${seasonId}/fixtures`}>
+              fixtures
+              <ArrowRight />
+            </Link>
+          </span>
+        </div>
+      </Transition>
     );
   }
 

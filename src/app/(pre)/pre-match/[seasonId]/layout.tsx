@@ -7,8 +7,10 @@ export default async function Layout({
 }>) {
   return (
     <div className="block">
+      {/* <Transition> */}
       <PreMatchSubNav />
-      <div>{children}</div>
+      {children}
+      {/* </Transition> */}
     </div>
   );
 }
