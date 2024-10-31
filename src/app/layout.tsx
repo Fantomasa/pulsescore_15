@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import Header from "@/components/Header/Header";
-import { ThemeProvider } from "@/components/theme-provider";
+import { Theme } from "@/components/theme-provider";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -26,12 +26,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    // suppressHydrationWarning we must enable it because when we add theme provider there is a diffrence between server and client components
+    <html lang="en" suppressHydrationWarning>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased text-sm md:text-base`}>
-        <ThemeProvider>
+        <Theme>
           <Header />
           <main className="">{children}</main>
-        </ThemeProvider>
+        </Theme>
       </body>
     </html>
   );
