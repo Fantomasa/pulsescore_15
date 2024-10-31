@@ -14,7 +14,7 @@ export default function PreMatchSubNav() {
       <ul className="flex w-full gap-20 justify-center mt-5 px-10 mb-5">
         <li>
           <Link
-            href={`/pre-match/${seasonId}/table`}
+            href={`/fixtures/${seasonId}/table`}
             className={`text-center mx-auto justify-center text-sm hover:underline underline-offset-4 ${
               pathname.endsWith("table") ? "underline" : ""
             }`}
@@ -24,7 +24,7 @@ export default function PreMatchSubNav() {
         </li>
         <li>
           <Link
-            href={`/pre-match/${seasonId}/fixtures`}
+            href={`/fixtures/${seasonId}/fixtures`}
             className={`text-center mx-auto justify-center text-sm hover:underline underline-offset-4 ${
               pathname.endsWith("fixtures") ? "underline" : ""
             }`}

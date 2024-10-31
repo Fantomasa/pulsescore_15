@@ -31,7 +31,7 @@ export default function RootLayout({
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased text-sm md:text-base`}>
         <Theme>
           <Header />
-          <main className="">{children}</main>
+          <main className="mt-5">{children}</main>
         </Theme>
       </body>
     </html>

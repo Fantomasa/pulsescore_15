@@ -12,7 +12,7 @@ export default function League({ league }: { league: LeagueType }) {
       onClick={() => toggleSideNav()}
       className={`hover:text-primary hover:underline mt-2 text-xs md:text-sm ${params.seasonId === league.seasonId ? "text-primary" : ""}`}
     >
-      <Link href={`/pre-match/${league.seasonId}/table`}>{league.name}</Link>
+      <Link href={`/fixtures/${league.seasonId}/fixtures`}>{league.name}</Link>
     </li>
   );
 }

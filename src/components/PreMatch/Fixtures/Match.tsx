@@ -12,12 +12,12 @@ export default function Match({ fixture }: { fixture: FixtureMatchSchema }) {
       <div className="flex ml-2">
         <div
           id="home-team"
-          className={`w-[100px] truncate ${fixture.result.winner && fixture.result.winner === "home" ? "font-bold underline" : ""}`}
+          className={`w-[100px] truncate ${fixture.result.winner && fixture.result.winner === "home" ? "font-bold text-primary" : ""}`}
         >
           <span>{fixture.teams.home.name}</span>
         </div>
 
-        <div id="score" className="flex gap-2 w-[50px]">
+        <div id="score" className="flex gap-2 w-[50px] font-extrabold">
           <span>{fixture.result.home}</span>
           <span>:</span>
           <span>{fixture.result.away}</span>
@@ -25,7 +25,7 @@ export default function Match({ fixture }: { fixture: FixtureMatchSchema }) {
 
         <div
           id="away-team"
-          className={`w-[100px] truncate ${fixture.result.winner && fixture.result.winner === "away" ? "font-bold underline" : ""}`}
+          className={`w-[100px] truncate ${fixture.result.winner && fixture.result.winner === "away" ? "font-bold text-primary" : ""}`}
         >
           <span>{fixture.teams.away.name}</span>
         </div>

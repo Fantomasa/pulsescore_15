@@ -23,7 +23,7 @@ export default function Profile({ session }: { session: Session }) {
           <AvatarFallback>{session?.user?.name ? session?.user?.name.substring(0, 2).toUpperCase() : ""}</AvatarFallback>
         </Avatar>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="profile-dropdown">
+      <DropdownMenuContent>
         <DropdownMenuItem>{session.user?.email}</DropdownMenuItem>
         <DropdownMenuSeparator />
         <form action={signOutAction}>

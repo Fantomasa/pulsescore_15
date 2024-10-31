@@ -20,7 +20,7 @@ export default function Login() {
       <DropdownMenuTrigger asChild>
         <Button variant="ghost">Login</Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="profile-dropdown">
+      <DropdownMenuContent>
         <DropdownMenuCheckboxItem>
           <form className="flex gap-2 items-center" action={() => signInAction("google")}>
             <button type="submit">Google</button>
@@ -28,7 +28,6 @@ export default function Login() {
           </form>
         </DropdownMenuCheckboxItem>
         <DropdownMenuSeparator />
-
         <DropdownMenuCheckboxItem>
           <form className="flex gap-2 items-center" action={() => signInAction("github")}>
             <button type="submit">GitHub</button>

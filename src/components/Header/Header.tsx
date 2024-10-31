@@ -9,17 +9,17 @@ export default async function Header() {
   const session = await auth();
 
   return (
-    <header className="flex justify-between items-center gap-3 p-4 border-b">
-      <Link href="/" className="flex gap-1 items-center">
-        <IoPulseSharp className="w-6 h-6 text-primary" />
-        <p className="text-lg md:text-xl font-bold hover:text-primary">PulseScore</p>
+    <header className="flex sticky top-0 z-20 justify-center items-center w-full md:w-2/3 mx-auto p-4 border-b backdrop-blur">
+      <Link href="/" className="flex items-center">
+        <IoPulseSharp className="size-8 text-primary" />
+        {/* <p className="text-lg md:text-xl font-bold hover:text-primary"></p> */}
       </Link>
 
       <div className="flex-1 flex justify-center">
         <Nav />
       </div>
 
-      {session?.user ? <Profile session={session} /> : <Login />}
+      <div>{session?.user ? <Profile session={session} /> : <Login />}</div>
     </header>
   );
 }
