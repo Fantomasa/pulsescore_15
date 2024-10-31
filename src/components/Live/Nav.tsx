@@ -2,6 +2,7 @@
 
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
+import { SPORTS } from "./constants";
 
 type NavLink = {
   name: string;
@@ -10,22 +11,22 @@ type NavLink = {
 
 const navData: Array<NavLink> = [
   {
-    name: "Football",
-    href: "/live-score?sport=football"
+    name: SPORTS.FOOTBALL.normal,
+    href: `/live-score?sport=${SPORTS.FOOTBALL.lower}`
   },
   {
-    name: "Basketball",
-    href: "/live-score?sport=basketball"
+    name: SPORTS.BASKETBALL.normal,
+    href: `/live-score?sport=${SPORTS.BASKETBALL.lower}`
   },
   {
-    name: "Tennis",
-    href: "/live-score?sport=tennis"
+    name: SPORTS.TENNIS.normal,
+    href: `/live-score?sport=${SPORTS.TENNIS.lower}`
   }
 ];
 
 export default function NavComponent() {
   let sport = useSearchParams().get("sport");
-  if (!sport) sport = "football";
+  if (!sport) sport = SPORTS.FOOTBALL.lower;
 
   return (
     <ul className="flex items-center justify-between w-full">
