@@ -21,7 +21,7 @@ export default async function LiveScore({ searchParams }: { searchParams: Promis
 
   return (
     <div>
-      {sport === SPORTS.FOOTBALL.lower && <FootballEvents />}
+      {sport === SPORTS.FOOTBALL.lower && <FootballEvents liveEvents={liveData} />}
       {sport === SPORTS.BASKETBALL.lower && <BasketballEvents />}
       {sport === SPORTS.TENNIS.lower && <TennisEvents />}
     </div>
