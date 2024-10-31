@@ -15,12 +15,11 @@ export default function SingleLeague({
     <div className="">
       <div className="flex flex-row gap-2 items-center">
         <Image
-          style={{ height: "15px", width: "20px" }}
-          className="w-auto h-auto"
+          className="w-auto h-auto" // Set the width and height in tailwind CSS classes
           src={`/tournament/${tournamentName}.png`}
           alt={tournamentName}
-          width={20}
-          height={20}
+          width={20} // Maintain aspect ratio here
+          height={15} // Maintain aspect ratio here
         />
         <div className="text-start flex flex-col">
           <span className="font-bold text-base">{leagueName}</span>

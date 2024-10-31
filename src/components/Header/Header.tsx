@@ -10,12 +10,18 @@ export default async function Header() {
 
   return (
     <header className="flex justify-between items-center gap-3 p-4 border-b">
+      {/* Left: Logo */}
       <Link href="/" className="flex gap-1 items-center">
         <IoPulseSharp className="w-6 h-6 text-primary" />
-        <p className="text-2xl font-bold hover:text-primary">PulseScore</p>
+        <p className="text-lg md:text-xl font-bold hover:text-primary">PulseScore</p>
       </Link>
 
-      <Nav />
+      {/* Center: Navigation Links */}
+      <div className="flex-1 flex justify-center">
+        <Nav />
+      </div>
+
+      {/* Right: Profile/Login */}
       {session?.user ? <Profile session={session} /> : <Login />}
     </header>
   );

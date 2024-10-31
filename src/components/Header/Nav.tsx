@@ -8,7 +8,7 @@ export default function Nav() {
   const pathname = usePathname();
 
   return (
-    <nav className="flex gap-4 justify-between items-center font-bold">
+    <nav className="flex gap-4 justify-center items-center font-bold">
       <NavLink href="/pre-match" currentPath={pathname}>
         Leagues
       </NavLink>
