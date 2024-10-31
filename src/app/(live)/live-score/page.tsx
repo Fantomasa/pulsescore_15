@@ -1,10 +1,10 @@
+import { SPORTS } from "@/components/Live/constants";
 import { getLiveEvents } from "@/services/live-score/live-score";
-import React from "react";
 
 export default async function LiveScore({ searchParams }: { searchParams: Promise<{ sport: string }> }) {
   let { sport } = await searchParams;
 
-  if (sport !== "football" && sport !== "basketball" && sport !== "tennis") sport = "football";
+  if (sport !== SPORTS.FOOTBALL.lower && sport !== SPORTS.BASKETBALL.lower && sport !== SPORTS.TENNIS.lower) sport = SPORTS.FOOTBALL.lower;
 
   const liveData = await getLiveEvents(sport);
 
@@ -16,5 +16,5 @@ export default async function LiveScore({ searchParams }: { searchParams: Promis
     );
   }
 
-  return <div>{JSON.stringify(liveData)}</div>;
+  return <div></div>;
 }
