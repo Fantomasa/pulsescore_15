@@ -1,6 +1,6 @@
-import Image from "next/image";
 import Event from "./Event";
 import { SingleLiveEventSchema } from "@/services/live-score/schemas";
+import TournamentImage from "./TournamentImage";
 
 export default function SingleLeague({
   tournamentName,
@@ -14,13 +14,7 @@ export default function SingleLeague({
   return (
     <div className="">
       <div className="flex flex-row gap-2 items-center">
-        <Image
-          className="w-auto h-auto" // Set the width and height in tailwind CSS classes
-          src={`/tournament/${tournamentName}.png`}
-          alt={tournamentName}
-          width={20} // Maintain aspect ratio here
-          height={15} // Maintain aspect ratio here
-        />
+        <TournamentImage tournament={tournamentName} />
         <div className="text-start flex flex-col">
           <span className="font-bold text-base">{leagueName}</span>
           <span className="text-xs">{tournamentName}</span>

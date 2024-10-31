@@ -1,6 +1,6 @@
 import { sortByTournament } from "@/services/live-score/utils";
 import { LiveEventsResult } from "@/services/live-score/schemas";
-import SingleLeague from "./SingleEvent";
+import SingleLeague from "./SingleLeague";
 
 export default function FootballEvents({ liveEvents }: { liveEvents: LiveEventsResult }) {
   const data = sortByTournament(liveEvents);
