@@ -12,7 +12,7 @@ export default function Nav() {
       <NavLink href="/pre-match" currentPath={pathname}>
         Leagues
       </NavLink>
-      <NavLink href="/live-score" currentPath={pathname}>
+      <NavLink href="/live-score?sport=football" currentPath={pathname}>
         Live
       </NavLink>
     </nav>

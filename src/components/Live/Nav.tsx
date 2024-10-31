@@ -1,26 +1,46 @@
 "use client";
 
-import { usePathname } from "next/navigation";
-import NavLink from "../common/NavLink";
+import { useSearchParams } from "next/navigation";
+import Link from "next/link";
 
-function Nav() {
-  const pathname = usePathname();
+type NavLink = {
+  name: string;
+  href: string;
+};
+
+const navData: Array<NavLink> = [
+  {
+    name: "Football",
+    href: `/live-score?sport=football`
+  },
+  {
+    name: "Basketball",
+    href: `/live-score?sport=basketball`
+  },
+  {
+    name: "Tennis",
+    href: `/live-score?sport=tennis`
+  }
+];
+
+export default function NavComponent() {
+  let sport = useSearchParams().get("sport");
+  if (!sport) sport = "football";
+
+  console.log({ sport });
 
   return (
     <ul className="flex items-center justify-between w-full">
-      <NavLink href="/live-score?sport=football" currentPath={pathname}>
-        Football
-      </NavLink>
-
-      <NavLink href="/live-score?sport=basketball" currentPath={pathname}>
-        Basketball
-      </NavLink>
-
-      <NavLink href="/live-score?sport=tennis" currentPath={pathname}>
-        Tennis
-      </NavLink>
+      {navData.map((link) => (
+        <li key={link.name}>
+          <Link
+            href={link.href}
+            className={`hover:underline underline-offset-4 ${link.href.includes(sport?.toLowerCase()) && "underline"}`}
+          >
+            {link.name}
+          </Link>
+        </li>
+      ))}
     </ul>
   );
 }
-
-export default Nav;

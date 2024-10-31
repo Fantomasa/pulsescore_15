@@ -4,12 +4,10 @@ import React from "react";
 export default async function LiveScore({ searchParams }: { searchParams: Promise<{ sport: string }> }) {
   let { sport } = await searchParams;
 
-  console.log({ sport });
   if (sport !== "football" && sport !== "basketball" && sport !== "tennis") sport = "football";
 
   const liveData = await getLiveEvents(sport);
 
-  liveData.total = 0;
   if (liveData.total <= 0) {
     return (
       <div className="flex gap-2 items-center text-center justify-center">

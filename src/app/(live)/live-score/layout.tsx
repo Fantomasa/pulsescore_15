@@ -1,4 +1,4 @@
-import Nav from "@/components/Live/Nav";
+import NavComponent from "@/components/Live/Nav";
 
 export default async function Layout({
   children
@@ -8,7 +8,7 @@ export default async function Layout({
   return (
     <div className="flex flex-col md:px-2">
       <div className="w-2/3 mx-auto my-2">
-        <Nav />
+        <NavComponent />
       </div>
       <div className="w-full p-1">{children}</div>
     </div>

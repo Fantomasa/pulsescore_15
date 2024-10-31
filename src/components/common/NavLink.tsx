@@ -8,7 +8,7 @@ export default function NavLink({ href, currentPath, children }: { href: string;
   return (
     <Link
       className={`p-2 bg-foreground rounded-md items-center border hover:text-primary hover:bg-secondary ${
-        currentPath.includes(href) ? acitveClass : ""
+        href.includes(currentPath) ? acitveClass : ""
       }`}
       href={href}
     >
