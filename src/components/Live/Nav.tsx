@@ -11,23 +11,21 @@ type NavLink = {
 const navData: Array<NavLink> = [
   {
     name: "Football",
-    href: `/live-score?sport=football`
+    href: "/live-score?sport=football"
   },
   {
     name: "Basketball",
-    href: `/live-score?sport=basketball`
+    href: "/live-score?sport=basketball"
   },
   {
     name: "Tennis",
-    href: `/live-score?sport=tennis`
+    href: "/live-score?sport=tennis"
   }
 ];
 
 export default function NavComponent() {
   let sport = useSearchParams().get("sport");
   if (!sport) sport = "football";
-
-  console.log({ sport });
 
   return (
     <ul className="flex items-center justify-between w-full">
