@@ -1,4 +1,5 @@
 import { InstagramLogoIcon, TwitterLogoIcon } from "@radix-ui/react-icons";
+import Link from "next/link";
 import { BsFacebook } from "react-icons/bs";
 
 export default function Footer() {
@@ -18,19 +19,19 @@ export default function Footer() {
             <h3 className="text-lg font-semibold mb-3">Quick Links</h3>
             <ul className="text-xs md:text-sm space-y-2">
               <li>
-                <a href="/fixtures" className="hover:underline">
+                <Link href="/fixtures" className="hover:underline">
                   Fixtures
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/live" className="hover:underline">
-                  Live Scores
-                </a>
+                <Link href="/live-score?sport=football" className="hover:underline">
+                  LiveScore
+                </Link>
               </li>
               <li>
-                <a href="/about-us" className="hover:underline">
+                <Link href="/about-us" className="hover:underline">
                   About Us
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
