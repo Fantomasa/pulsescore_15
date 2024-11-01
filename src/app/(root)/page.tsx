@@ -23,7 +23,7 @@ export default function Home() {
           </p>
           <Link
             href="/live-score?sport=football"
-            className="bg-green-500 text-gray-900 px-6 py-3 rounded-lg text-lg font-semibold hover:bg-green-600 transition"
+            className="bg-green-500 text-secondary px-6 py-3 rounded-lg text-lg font-semibold hover:bg-green-600 transition"
           >
             Explore Live Scores
           </Link>
