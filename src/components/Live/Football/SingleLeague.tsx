@@ -1,6 +1,6 @@
 import Event from "./Event";
 import { SingleLiveEventSchema } from "@/services/live-score/schemas";
-import TournamentImage from "./TournamentImage";
+import TournamentImage from "../../common/TournamentImage";
 
 export default function SingleLeague({
   tournamentName,
