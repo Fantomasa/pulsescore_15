@@ -42,6 +42,15 @@ export type SingleLiveEventSchema = {
   stage: string;
   liveAlert: boolean;
   scoreboard: {
+    indicator: string;
+    totalPoints: {
+      player1: {
+        255: number;
+      };
+      player2: {
+        255: number;
+      };
+    };
     corners: {
       player1: {
         "253": number;

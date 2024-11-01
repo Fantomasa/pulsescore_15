@@ -3,7 +3,7 @@ import { LiveEventsResult, SingleLiveEventSchema } from "./schemas";
 export function sortByTournament(redisSearchResult: LiveEventsResult) {
   const tournaments = new Map<string, Map<string, SingleLiveEventSchema[]>>();
 
-  for (let tIdx = 0; tIdx < redisSearchResult.data.length; tIdx++) {
+  for (let tIdx = 0; tIdx < redisSearchResult?.data.length; tIdx++) {
     const event = redisSearchResult.data[tIdx];
 
     if (event.name.value.split(" - ").length !== 2) continue; //remove events without two teams: Some bug from scrapping process

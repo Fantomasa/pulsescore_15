@@ -23,7 +23,7 @@ export default async function LiveScore({ searchParams }: { searchParams: Promis
   return (
     <Transition>
       {sport === SPORTS.FOOTBALL.lower && <FootballEvents liveEvents={liveData} />}
-      {sport === SPORTS.BASKETBALL.lower && <BasketballEvents />}
+      {sport === SPORTS.BASKETBALL.lower && <BasketballEvents liveEvents={liveData} />}
       {sport === SPORTS.TENNIS.lower && <TennisEvents />}
     </Transition>
   );
