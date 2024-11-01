@@ -24,7 +24,7 @@ export default function Event({ event }: { event: SingleLiveEventSchema }) {
       {event.stage === "Live" && (
         <div className="flex flex-col w-2/5 justify-center">
           <div id="home" className="flex items-center gap-4 justify-center">
-            <ul className="flex gap-1">
+            <ul className="flex gap-1 min-w-[60px]">
               {score.homeGames.map((x, idx) => (
                 <li key={idx}>{x}</li>
               ))}
@@ -32,7 +32,7 @@ export default function Event({ event }: { event: SingleLiveEventSchema }) {
             <span className="min-w-7 text-right">{score.home}</span>
           </div>
           <div id="away" className="flex items-center gap-4 justify-center">
-            <ul className="flex gap-1">
+            <ul className="flex gap-1 min-w-[60px]">
               {score.homeGames.map((x, idx) => (
                 <li key={idx}>{x}</li>
               ))}
