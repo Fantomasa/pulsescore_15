@@ -20,7 +20,7 @@ export default async function Fixtures({ params }: { params: Promise<{ seasonId:
 
   return (
     <Transition>
-      <FixturesComponent matches={fixturesData.data[0].matches} />;
+      <FixturesComponent matches={fixturesData.data[0].matches} />
     </Transition>
   );
 }
