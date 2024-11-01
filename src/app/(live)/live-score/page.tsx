@@ -24,7 +24,7 @@ export default async function LiveScore({ searchParams }: { searchParams: Promis
     <Transition>
       {sport === SPORTS.FOOTBALL.lower && <FootballEvents liveEvents={liveData} />}
       {sport === SPORTS.BASKETBALL.lower && <BasketballEvents liveEvents={liveData} />}
-      {sport === SPORTS.TENNIS.lower && <TennisEvents />}
+      {sport === SPORTS.TENNIS.lower && <TennisEvents liveEvents={liveData} />}
     </Transition>
   );
 }
