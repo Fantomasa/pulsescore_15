@@ -1,6 +1,6 @@
 import NavComponent from "@/components/Live/Nav";
 
-export default async function Layout({
+export default async function Template({
   children
 }: Readonly<{
   children: React.ReactNode;

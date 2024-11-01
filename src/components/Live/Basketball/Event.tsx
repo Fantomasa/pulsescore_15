@@ -39,12 +39,8 @@ function getBasketballPlayTime(event: SingleLiveEventSchema) {
       const period = event.scoreboard.period;
       let timeDisplay = period;
 
-      if (period !== "Halftime") {
+      if (event.scoreboard?.indicator) {
         timeDisplay = `${period} ${event.scoreboard.indicator}'`;
-      }
-
-      if (period === "Not Started") {
-        timeDisplay = period;
       }
 
       return timeDisplay;
