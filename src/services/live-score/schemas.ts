@@ -42,6 +42,11 @@ export type SingleLiveEventSchema = {
   stage: string;
   liveAlert: boolean;
   scoreboard: {
+    setsValues: {
+      player1: Array<string>;
+      player2: Array<string>;
+    };
+    points: Array<string>;
     indicator: string;
     totalPoints: {
       player1: {
@@ -175,7 +180,6 @@ export type SingleLiveEventSchema = {
     id: string;
     period: string;
     periodId: number;
-    points: [];
     score: string;
     timer: {
       running: boolean;
