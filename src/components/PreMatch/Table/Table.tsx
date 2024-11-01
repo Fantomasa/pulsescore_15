@@ -1,35 +1,42 @@
 "use client";
 import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { CategorySchema, TableRow as IncomingTableRow, TournamentSchema } from "@/services/pre-match/schemas";
+import { getUniquePromotions } from "@/services/utils";
 import { ArrowRight } from "lucide-react";
+import { BsCircleFill } from "react-icons/bs";
 
 const PROMOTIONS = {
   CH: "Champions League",
   EL: "UEFA Europa League",
   CLQ: "Conference League Qualification",
   R: "Relegation",
-  P: "Promotion"
+  P: "Promotion",
+  PPO: "Promotion Playoff",
+  QP: "Qualification Playoff"
 };
 
 function getPromotionClass(promotionName: string) {
-  let className = "";
+  if (!promotionName) return "";
+
+  let className = "text-orange-600";
+
   if (promotionName === PROMOTIONS.CH || promotionName === PROMOTIONS.P) {
-    className = "text-blue-300";
+    className = "text-blue-400";
     return className;
   }
 
-  if (promotionName === PROMOTIONS.R) {
-    className = "text-red-400";
-    return className;
-  }
-
-  if (promotionName === PROMOTIONS.CLQ) {
+  if (promotionName === PROMOTIONS.CLQ || promotionName.includes(PROMOTIONS.QP)) {
     className = "text-orange-400";
     return className;
   }
 
-  if (promotionName === PROMOTIONS.EL) {
+  if (promotionName === PROMOTIONS.EL || promotionName.includes(PROMOTIONS.PPO)) {
     className = "text-green-400";
+    return className;
+  }
+
+  if (promotionName === PROMOTIONS.R) {
+    className = "text-red-600";
     return className;
   }
 
@@ -45,6 +52,8 @@ export default function TableComponent({
   tournamentData: TournamentSchema;
   tableRows: Array<IncomingTableRow>;
 }) {
+  const promotions = getUniquePromotions(tableRows);
+
   return (
     <div>
       <div className="flex gap-2 items-center text-lg w-full justify-center">
@@ -55,7 +64,18 @@ export default function TableComponent({
         </span>
       </div>
       <Table>
-        <TableCaption></TableCaption>
+        <TableCaption>
+          {promotions.map((promotion) => {
+            return (
+              <div key={promotion} className="flex items-center gap-2 justify-start">
+                <span>
+                  <BsCircleFill size={10} className={`${getPromotionClass(promotion)}`} />
+                </span>
+                <span>{promotion}</span>
+              </div>
+            );
+          })}
+        </TableCaption>
         <TableHeader>
           <TableRow>
             <TableHead>Pos</TableHead>

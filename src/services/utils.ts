@@ -1,4 +1,4 @@
-import { TournamentsResult } from "./pre-match/schemas";
+import { TableRow, TournamentsResult } from "./pre-match/schemas";
 
 export async function fetcher<T>(baseURL: string, path: string, query: string = ""): Promise<T> {
   const url = `${baseURL}${path}?${query}`;
@@ -51,4 +51,16 @@ export function sortTournaments(tResult: TournamentsResult) {
   });
 
   return categoryArray;
+}
+
+export function getUniquePromotions(tableRows: Array<TableRow>) {
+  const promotions = new Set<string>();
+
+  tableRows.forEach((row) => {
+    if (row.promotion?.name) {
+      promotions.add(row.promotion.name);
+    }
+  });
+
+  return Array.from(promotions);
 }
