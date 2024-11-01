@@ -10,12 +10,14 @@ export default async function Layout({
   const categories = await getTournaments();
 
   return (
-    <div className="flex flex-col md:w-2/3 mx-auto">
+    <div className="flex md:w-2/3 mx-auto">
       <SideNavProvider>
         <SideNav categories={categories} />
       </SideNavProvider>
-      <h1 className="text-xl w-full mx-auto text-center">Football</h1>
-      <div className="w-full p-1">{children}</div>
+      <div className="w-full p-1">
+        <h1 className="text-2xl text-center">Football</h1>
+        {children}
+      </div>
     </div>
   );
 }
