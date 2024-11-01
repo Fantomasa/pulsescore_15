@@ -13,6 +13,14 @@ const navData: Array<NavLink> = [
   {
     name: SPORTS.FOOTBALL.normal,
     href: `/live-score?sport=${SPORTS.FOOTBALL.lower}`
+  },
+  {
+    name: SPORTS.BASKETBALL.normal,
+    href: `/live-score?sport=${SPORTS.BASKETBALL.lower}`
+  },
+  {
+    name: SPORTS.TENNIS.normal,
+    href: `/live-score?sport=${SPORTS.TENNIS.lower}`
   }
 ];
 
@@ -21,7 +29,7 @@ export default function NavComponent() {
   if (!sport) sport = SPORTS.FOOTBALL.lower;
 
   return (
-    <ul className="flex items-center justify-center w-full">
+    <ul className="flex items-center justify-center w-full gap-5">
       {navData.map((link) => (
         <li key={link.name}>
           <Link

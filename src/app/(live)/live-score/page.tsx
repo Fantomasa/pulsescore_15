@@ -2,6 +2,7 @@ import BasketballEvents from "@/components/Live/Basketball/BasketballEvents";
 import { SPORTS } from "@/components/Live/constants";
 import FootballEvents from "@/components/Live/Football/FootballEvents";
 import TennisEvents from "@/components/Live/Tennis/TennisEvents";
+import Transition from "@/components/Transition";
 import { getLiveEvents } from "@/services/live-score/live-score";
 
 export default async function LiveScore({ searchParams }: { searchParams: Promise<{ sport: string }> }) {
@@ -20,10 +21,10 @@ export default async function LiveScore({ searchParams }: { searchParams: Promis
   }
 
   return (
-    <div>
+    <Transition>
       {sport === SPORTS.FOOTBALL.lower && <FootballEvents liveEvents={liveData} />}
       {sport === SPORTS.BASKETBALL.lower && <BasketballEvents />}
       {sport === SPORTS.TENNIS.lower && <TennisEvents />}
-    </div>
+    </Transition>
   );
 }
