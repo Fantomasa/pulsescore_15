@@ -5,8 +5,8 @@ const Spinner = () => {
       <path className="opacity-75" fill="url(#gradient)" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path>
       <defs>
         <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" style={{ stopColor: "#4F46E5", stopOpacity: 1 }} />
-          <stop offset="100%" style={{ stopColor: "#3B82F6", stopOpacity: 1 }} />
+          <stop offset="0%" style={{ stopColor: "#84f152", stopOpacity: 1 }} />
+          <stop offset="100%" style={{ stopColor: "#84f152", stopOpacity: 1 }} />
         </linearGradient>
       </defs>
     </svg>
