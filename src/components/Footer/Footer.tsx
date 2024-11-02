@@ -1,6 +1,7 @@
 import { InstagramLogoIcon, TwitterLogoIcon } from "@radix-ui/react-icons";
 import Link from "next/link";
 import { BsFacebook } from "react-icons/bs";
+import { IoPulseSharp } from "react-icons/io5";
 
 export default function Footer() {
   return (
@@ -8,7 +9,9 @@ export default function Footer() {
       <div className="max-w-6xl mx-auto px-4">
         <div className="flex flex-wrap justify-between">
           <div className="w-full md:w-1/3 mb-6 md:mb-0">
-            <h3 className="text-lg md:text-2xl font-semibold mb-3">Sports Info</h3>
+            <h3 className="flex gap-2 text-lg md:text-2xl font-semibold mb-3">
+              <IoPulseSharp className="size-8 text-primary" /> PulseScore
+            </h3>
             <p className="text-xs md:text-sm">
               Your ultimate source for real-time sports updates, league tables, and match statistics. Stay connected with live scores and
               the latest from Football, Basketball, and Tennis.
