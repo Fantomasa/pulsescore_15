@@ -1,10 +1,16 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
-import "./globals.css";
+
 import Header from "@/components/Header/Header";
-import { Theme } from "@/components/theme-provider";
 import Footer from "@/components/Footer/Footer";
+
 import { WEB_PAGE_DESCRIPTION, WEB_PAGE_KEYWORDS, WEB_PAGE_NAME } from "@/metadata";
+
+import localFont from "next/font/local";
+import { Theme } from "@/components/theme-provider";
+
+import { GoogleAnalytics } from "@next/third-parties/google";
+
+import "./globals.css";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -42,6 +48,7 @@ export default function RootLayout({
           <Footer />
         </Theme>
       </body>
+      {process.env.NODE_ENV === "production" && <GoogleAnalytics gaId="G-911TT7YCBF" />}
     </html>
   );
 }
