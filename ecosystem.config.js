@@ -1,7 +1,7 @@
 module.exports = {
   apps: [
     {
-      name: "nextjs-app",
+      name: "pulsescore",
       script: "npm",
       args: "start",
       instances: 1, // Use only one instance

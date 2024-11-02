@@ -1,0 +1,38 @@
+name: Deploy PulseScore
+on: [push]
+env:
+  HOME: "/home/fantomasa"
+  NVM_DIR: "/home/fantomasa/.nvm"
+  PROJECT_DIR: "/home/fantomasa/docker/pulsescore_15"
+  PROJECT_NAME: "pulsescore"
+jobs:
+  Auto-Deploy:
+    runs-on: [self-hosted]
+    steps:
+      - name: Using versions and check DIRS
+        run: |
+          echo nvm: $(nvm -v)
+          echo node: $(node -v)
+          echo npm: $(npm -v)
+          echo pm2: $(pm2 -v)
+      - name: Pulling repo from Github
+        run: |
+          cd $PROJECT_DIR
+          git pull
+      - name: Installing dependencies
+        run: |
+          cd $PROJECT_DIR
+          npm install
+      - name: Build
+        run: |
+          cd $PROJECT_DIR
+          npm run build
+      - name: Removing PM2 log
+        run: pm2 flush
+      - name: Start with demon
+        run: |
+          cd $PROJECT_DIR
+          pm2 delete all
+          pm2 start ecosystem.config.js
+          pm2 reset all
+          pm2 save
