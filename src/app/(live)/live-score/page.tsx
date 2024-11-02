@@ -1,22 +1,15 @@
-"use client";
+import LiveScoreWrapper from "@/components/Live/LiveScoreWrapper";
+import { WEB_PAGE_DESCRIPTION, WEB_PAGE_KEYWORDS, WEB_PAGE_NAME } from "@/metadata";
+import { Metadata } from "next";
 
-import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
-
-import { SPORTS } from "@/components/Live/constants";
-import LiveScoreComponent from "@/components/Live/LiveScore";
-import { useSearchParams } from "next/navigation";
-
-const queryClient = new QueryClient();
+export function generateMetadata(): Metadata {
+  return {
+    title: `${WEB_PAGE_NAME} | Live Score`,
+    description: WEB_PAGE_DESCRIPTION,
+    keywords: WEB_PAGE_KEYWORDS
+  };
+}
 
 export default function LiveScore() {
-  const params = useSearchParams();
-  let sport = params.get("sport");
-
-  if (sport !== SPORTS.FOOTBALL.lower && sport !== SPORTS.BASKETBALL.lower && sport !== SPORTS.TENNIS.lower) sport = SPORTS.FOOTBALL.lower;
-
-  return (
-    <QueryClientProvider client={queryClient}>
-      <LiveScoreComponent sport={sport} />
-    </QueryClientProvider>
-  );
+  return <LiveScoreWrapper />;
 }
