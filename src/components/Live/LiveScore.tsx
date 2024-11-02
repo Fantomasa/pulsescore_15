@@ -6,9 +6,10 @@ import BasketballEvents from "@/components/Live/Basketball/BasketballEvents";
 import FootballEvents from "@/components/Live/Football/FootballEvents";
 import TennisEvents from "@/components/Live/Tennis/TennisEvents";
 import { SPORTS } from "./constants";
+import { LiveEventsResult } from "@/services/live-score/schemas";
 
 export default function LiveScoreComponent({ sport }: { sport: string }) {
-  const { data: liveData } = useQuery({
+  const { data: liveData } = useQuery<LiveEventsResult>({
     queryKey: ["live-score", sport],
     queryFn: () => fetch(`/api/live-score?sport=${sport}`).then((res) => res.json()),
     refetchInterval: 5000
@@ -16,7 +17,7 @@ export default function LiveScoreComponent({ sport }: { sport: string }) {
 
   console.log({ liveData });
 
-  if (!liveData && liveData?.total <= 0) {
+  if (!liveData || (liveData && liveData?.total <= 0)) {
     return (
       <div className="flex gap-2 items-center text-center justify-center">
         No avaible events for <p className="font-bold text-xl uppercase">{sport}</p>
