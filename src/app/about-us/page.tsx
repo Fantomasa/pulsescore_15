@@ -55,7 +55,7 @@ export default function AboutUs() {
 
           <FadeIn x={0} y={5} delay={0.7}>
             <div className="bg-secondary p-6 rounded-lg shadow-lg">
-              <h2 className="text-2xl font-semibold mb-2">Why Choose Us?</h2>
+              <h2 className="text-2xl font-semibold mb-2">Why to Choose Us?</h2>
               <p>
                 With our real-time data feeds, easy-to-navigate interface, and detailed match analytics, we aim to be the go-to platform for
                 all sports data enthusiasts.
