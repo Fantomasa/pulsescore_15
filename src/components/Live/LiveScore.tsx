@@ -7,15 +7,18 @@ import FootballEvents from "@/components/Live/Football/FootballEvents";
 import TennisEvents from "@/components/Live/Tennis/TennisEvents";
 import { SPORTS } from "./constants";
 import { LiveEventsResult } from "@/services/live-score/schemas";
+import Spinner from "../common/Spinner";
 
 export default function LiveScoreComponent({ sport }: { sport: string }) {
-  const { data: liveData } = useQuery<LiveEventsResult>({
+  const { data: liveData, isLoading } = useQuery<LiveEventsResult>({
     queryKey: ["live-score", sport],
     queryFn: () => fetch(`/api/live-score?sport=${sport}`).then((res) => res.json()),
     refetchInterval: 5000
   });
 
-  console.log({ liveData });
+  // console.log({ liveData });
+
+  if (isLoading) return <Spinner />;
 
   if (!liveData || (liveData && liveData?.total <= 0)) {
     return (
