@@ -3,7 +3,7 @@
 import { motion, useInView } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 
-function FadeIn({ children, x, y, delay }: { x: number; y: number; delay: number; children: React.ReactNode }) {
+function FadeIn({ children, x = 0, y = 0, delay = 0 }: { x: number; y: number; delay: number; children: React.ReactNode }) {
   const ref = useRef(null);
   const inView = useInView(ref);
   const [isVisible, setIsVisible] = useState(false);
