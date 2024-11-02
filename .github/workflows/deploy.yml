@@ -9,6 +9,10 @@ jobs:
   Auto-Deploy:
     runs-on: [self-hosted]
     steps:
+      - name: Set up Node.js environment
+        run: |
+          source $NVM_DIR/nvm.sh
+          nvm use node
       - name: Using versions and check DIRS
         run: |
           echo nvm: $(nvm -v)
@@ -29,10 +33,10 @@ jobs:
           npm run build
       - name: Removing PM2 log
         run: pm2 flush
-      - name: Start with demon
+      - name: Start app with PM2
         run: |
           cd $PROJECT_DIR
-          pm2 delete all
-          pm2 start ecosystem.config.js
+          pm2 delete all || true  # Ignore errors if no PM2 processes exist
+          pm2 start ecosystem.config.js --time  # --time option adds timestamps in PM2 logs
           pm2 reset all
           pm2 save
