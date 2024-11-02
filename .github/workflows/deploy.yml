@@ -23,20 +23,24 @@ jobs:
         run: |
           cd $PROJECT_DIR
           git pull
-      - name: Installing dependencies
+      - name: start container
         run: |
-          cd $PROJECT_DIR
-          npm install
-      - name: Build
-        run: |
-          cd $PROJECT_DIR
-          npm run build
-      - name: Removing PM2 log
-        run: pm2 flush
-      - name: Start app with PM2
-        run: |
-          cd $PROJECT_DIR
-          pm2 stop $PROJECT_NAME || true  # Ignore errors if no PM2 processes exist
-          pm2 start ecosystem.config.js --time  # --time option adds timestamps in PM2 logs          
-          pm2 save
-          pm2 reset all
+          sudo docker-compose up -d --build
+
+      # - name: Installing dependencies
+      #   run: |
+      #     cd $PROJECT_DIR
+      #     npm install
+      # - name: Build
+      #   run: |
+      #     cd $PROJECT_DIR
+      #     npm run build
+      # - name: Removing PM2 log
+      #   run: pm2 flush
+      # - name: Start app with PM2
+      #   run: |
+      #     cd $PROJECT_DIR
+      #     pm2 stop $PROJECT_NAME || true  # Ignore errors if no PM2 processes exist
+      #     pm2 start ecosystem.config.js --time  # --time option adds timestamps in PM2 logs
+      #     pm2 save
+      #     pm2 reset all
