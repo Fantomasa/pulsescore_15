@@ -14,6 +14,7 @@ const jsonToTS = (json: string): string => {
     return `'${name.replace(/'/g, "\\'")}'`;
   };
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const generateSchema = (obj: any, indent: string = ""): string => {
     if (Array.isArray(obj)) {
       if (obj.length === 0) {
