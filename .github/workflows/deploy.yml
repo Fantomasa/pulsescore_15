@@ -23,6 +23,10 @@ jobs:
         run: |
           cd $PROJECT_DIR
           git pull
+      - name: Configure Passwordless sudo
+        run: |
+          echo "fantomasa ALL=(ALL) NOPASSWD: /usr/bin/docker-compose" | sudo tee /etc/sudoers.d/docker-compose
+          sudo chmod 440 /etc/sudoers.d/docker-compose
       - name: start container
         run: |
           cd $PROJECT_DIR
