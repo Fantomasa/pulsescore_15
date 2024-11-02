@@ -1,6 +1,17 @@
 import FadeIn from "@/components/common/FadeIn";
 import Link from "next/link";
 
+import { Metadata } from "next";
+import { WEB_PAGE_DESCRIPTION, WEB_PAGE_KEYWORDS, WEB_PAGE_NAME } from "@/metadata";
+
+export function generateMetadata(): Metadata {
+  return {
+    title: `${WEB_PAGE_NAME} | About us`,
+    description: WEB_PAGE_DESCRIPTION,
+    keywords: WEB_PAGE_KEYWORDS
+  };
+}
+
 export default function AboutUs() {
   return (
     <div className="text-white min-h-screen p-8 text-balance">
