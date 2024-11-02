@@ -1,11 +1,11 @@
-import { WEB_PAGE_DESCRIPTION, WEB_PAGE_KEYWORDS, WEB_PAGE_NAME } from "@/metadata";
+import { WEB_PAGE_DESCRIPTION, WEB_PAGE_KEYWORDS } from "@/metadata";
 import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
 export function generateMetadata(): Metadata {
   return {
-    title: `${WEB_PAGE_NAME} | Not Found`,
+    title: `Not Found`,
     description: WEB_PAGE_DESCRIPTION,
     keywords: WEB_PAGE_KEYWORDS
   };

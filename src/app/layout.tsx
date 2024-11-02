@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/Header/Header";
 import { Theme } from "@/components/theme-provider";
 import Footer from "@/components/Footer/Footer";
+import { WEB_PAGE_DESCRIPTION, WEB_PAGE_KEYWORDS, WEB_PAGE_NAME } from "@/metadata";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -17,8 +18,13 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "PulseScore",
-  description: "Live Score Statistics and Prematch Statistics"
+  metadataBase: new URL("https://pulsescore.net"),
+  title: { default: WEB_PAGE_NAME, template: `%s | ${WEB_PAGE_NAME}` },
+  description: WEB_PAGE_DESCRIPTION,
+  keywords: WEB_PAGE_KEYWORDS,
+  twitter: {
+    card: "summary_large_image"
+  }
 };
 
 export default function RootLayout({

@@ -2,12 +2,12 @@ import { auth } from "@/auth";
 import Login from "@/components/auth/Login";
 import Profile from "@/components/auth/Profile";
 import FadeIn from "@/components/common/FadeIn";
-import { WEB_PAGE_DESCRIPTION, WEB_PAGE_KEYWORDS, WEB_PAGE_NAME } from "@/metadata";
+import { WEB_PAGE_DESCRIPTION, WEB_PAGE_KEYWORDS } from "@/metadata";
 import { Metadata } from "next";
 
 export function generateMetadata(): Metadata {
   return {
-    title: `${WEB_PAGE_NAME} | Login`,
+    title: `Login`,
     description: WEB_PAGE_DESCRIPTION,
     keywords: WEB_PAGE_KEYWORDS
   };

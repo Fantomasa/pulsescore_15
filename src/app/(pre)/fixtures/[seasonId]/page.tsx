@@ -1,10 +1,4 @@
-type Params = {
-  params: {
-    seasonId: string;
-  };
-};
-
-export default async function Page({ params }: Params) {
+export default async function Page({ params }: { params: Promise<{ seasonId: string }> }) {
   const paramsData = await params;
 
   return <div>{paramsData.seasonId}</div>;

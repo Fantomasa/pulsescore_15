@@ -2,11 +2,11 @@ import FadeIn from "@/components/common/FadeIn";
 import Link from "next/link";
 
 import { Metadata } from "next";
-import { WEB_PAGE_DESCRIPTION, WEB_PAGE_KEYWORDS, WEB_PAGE_NAME } from "@/metadata";
+import { WEB_PAGE_DESCRIPTION, WEB_PAGE_KEYWORDS } from "@/metadata";
 
 export function generateMetadata(): Metadata {
   return {
-    title: `${WEB_PAGE_NAME} | About us`,
+    title: `About us`,
     description: WEB_PAGE_DESCRIPTION,
     keywords: WEB_PAGE_KEYWORDS
   };
