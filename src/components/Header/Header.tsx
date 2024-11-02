@@ -19,7 +19,7 @@ export default async function Header() {
         <Nav />
       </div>
 
-      <div>{session?.user ? <Profile session={session} /> : <Login />}</div>
+      <div>{session?.user ? <Profile session={session} /> : <Login btnProps={{ variant: "ghost" }} />}</div>
     </header>
   );
 }

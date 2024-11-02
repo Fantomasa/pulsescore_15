@@ -68,9 +68,9 @@ export default function Home() {
           <p className="text-lg mb-6 text-gray-900 leading-relaxed">
             Sign up for exclusive insights, match analyses, and get notified with the latest scores and fixtures.
           </p>
-          <button className="bg-gray-900 text-white px-6 py-3 rounded-lg text-lg font-semibold hover:bg-gray-800 transition">
+          <Link href="/login" className="bg-gray-900 text-white px-6 py-3 rounded-lg text-lg font-semibold hover:bg-gray-800 transition">
             Get Started
-          </button>
+          </Link>
         </div>
       </section>
     </div>

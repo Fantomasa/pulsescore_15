@@ -2,7 +2,7 @@
 
 import * as React from "react";
 
-import { Button } from "@/components/ui/button";
+import { Button, ButtonProps } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
@@ -14,11 +14,11 @@ import { GitHubLogoIcon } from "@radix-ui/react-icons";
 import { BsGoogle } from "react-icons/bs";
 import { signInAction } from "@/actions/auth";
 
-export default function Login() {
+export default function Login({ btnProps }: { btnProps: ButtonProps }) {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="ghost">Login</Button>
+        <Button {...btnProps}>Login</Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent>
         <DropdownMenuCheckboxItem>
