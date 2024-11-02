@@ -4,8 +4,8 @@ module.exports = {
       name: "pulsescore",
       script: "npm",
       args: "start",
-      instances: 1, // Use only one instance
-      exec_mode: "fork" // Fork mode
+      instances: 1,
+      exec_mode: "fork"
     }
   ]
 };
