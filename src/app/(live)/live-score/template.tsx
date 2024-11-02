@@ -1,7 +1,17 @@
 import NavComponent from "@/components/Live/Nav";
 import Transition from "@/components/Transition";
+import { WEB_PAGE_DESCRIPTION, WEB_PAGE_KEYWORDS, WEB_PAGE_NAME } from "@/metadata";
+import { Metadata } from "next";
 // import { RefreshCache } from "@/components/common/RefreshCache";
 // import { revalidatePath } from "next/cache";
+
+export function generateMetadata(): Metadata {
+  return {
+    title: `${WEB_PAGE_NAME} | Live Score`,
+    description: WEB_PAGE_DESCRIPTION,
+    keywords: WEB_PAGE_KEYWORDS
+  };
+}
 
 export default async function Template({
   children
