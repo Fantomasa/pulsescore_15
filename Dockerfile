@@ -10,7 +10,8 @@ RUN npx prisma generate
 
 RUN npx prisma db push
 
+RUN npm run test
+
 RUN npm run build
-#
 
 CMD ["npm", "start"]
