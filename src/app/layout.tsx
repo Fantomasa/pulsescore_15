@@ -11,6 +11,7 @@ import { Theme } from "@/components/theme-provider";
 import { GoogleAnalytics } from "@next/third-parties/google";
 
 import "./globals.css";
+import { Toaster } from "@/components/ui/toaster";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -45,6 +46,7 @@ export default function RootLayout({
         <Theme>
           <Header />
           <main className="mt-5 min-h-dvh">{children}</main>
+          <Toaster />
           <Footer />
         </Theme>
       </body>

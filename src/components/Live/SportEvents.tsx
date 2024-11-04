@@ -1,9 +1,13 @@
 import { sortByTournament } from "@/services/live-score/utils";
-import SingleLeague from "./SingleLeague";
 import { LiveEventsResult } from "@/services/live-score/schemas";
+import { useUserFavorites } from "./context";
 
-export default function BasketballEvents({ liveEvents }: { liveEvents: LiveEventsResult }) {
-  const data = sortByTournament(liveEvents);
+import SingleLeague from "./SingleLeague";
+
+export default function SportEvents({ liveEvents }: { liveEvents: LiveEventsResult }) {
+  const { userFavorites } = useUserFavorites();
+
+  const data = sortByTournament(liveEvents, userFavorites);
   const tournamentsNames = Array.from(data.keys());
 
   return (

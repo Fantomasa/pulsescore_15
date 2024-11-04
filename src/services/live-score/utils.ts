@@ -1,6 +1,6 @@
 import { LiveEventsResult, SingleLiveEventSchema } from "./schemas";
 
-export function sortByTournament(redisSearchResult: LiveEventsResult) {
+export function sortByTournament(redisSearchResult: LiveEventsResult, userFavorites: Array<string>) {
   const tournaments = new Map<string, Map<string, SingleLiveEventSchema[]>>();
 
   for (let tIdx = 0; tIdx < redisSearchResult?.data.length; tIdx++) {
@@ -43,5 +43,52 @@ export function sortByTournament(redisSearchResult: LiveEventsResult) {
     sortedTournaments.set(region, sortedLeagues);
   }
 
-  return sortedTournaments;
+  return sortByFavorites(sortedTournaments, userFavorites);
+}
+export function sortByFavorites(
+  sortedTournaments: Map<string, Map<string, SingleLiveEventSchema[]>>,
+  userFavorites: Array<string>
+): Map<string, Map<string, SingleLiveEventSchema[]>> {
+  const favoriteKeys = new Set(userFavorites);
+
+  const favoriteTournaments = new Map<string, Map<string, SingleLiveEventSchema[]>>();
+  const nonFavoriteTournaments = new Map<string, Map<string, SingleLiveEventSchema[]>>();
+
+  for (const [region, leagues] of sortedTournaments) {
+    const favoriteLeagues = new Map<string, SingleLiveEventSchema[]>();
+    const nonFavoriteLeagues = new Map<string, SingleLiveEventSchema[]>();
+
+    for (const [league, events] of leagues) {
+      const favoriteKey = createFavoriteKey(region, league);
+
+      if (favoriteKeys.has(favoriteKey)) {
+        favoriteLeagues.set(league, events);
+      } else {
+        nonFavoriteLeagues.set(league, events);
+      }
+    }
+
+    if (favoriteLeagues.size > 0) {
+      favoriteTournaments.set(region, new Map([...favoriteLeagues]));
+    }
+
+    nonFavoriteTournaments.set(region, new Map([...leagues]));
+  }
+
+  return new Map([...favoriteTournaments, ...nonFavoriteTournaments]);
+}
+
+const C_DELIMITER = "-";
+
+export function createFavoriteKey(tName: string, lName: string) {
+  return `${tName}${C_DELIMITER}${lName}`;
+}
+
+export function getTournamentLeagueNameFromKey(tlName: string) {
+  const splitArr = tlName.split(C_DELIMITER);
+
+  return {
+    tournamentName: splitArr[0],
+    leagueName: splitArr[1]
+  };
 }

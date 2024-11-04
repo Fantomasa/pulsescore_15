@@ -62,6 +62,18 @@ model User {
   // Optional for WebAuthn support
   Authenticator Authenticator[]
 
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @updatedAt
+  userFavorites UserFavorites?
+}
+
+model UserFavorites {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  userId    String   @unique @db.ObjectId
+  leagueIds String[] // Array of favorite league IDs
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }

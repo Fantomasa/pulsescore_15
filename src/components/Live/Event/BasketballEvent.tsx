@@ -1,6 +1,6 @@
 import { SingleLiveEventSchema } from "@/services/live-score/schemas";
 
-export default function Event({ event }: { event: SingleLiveEventSchema }) {
+export default function BasketballEvent({ event }: { event: SingleLiveEventSchema }) {
   const homeAwayArr = event.name.value.split(" - ");
   const home = homeAwayArr[0] || "Home";
   const away = homeAwayArr[1] || "Away";

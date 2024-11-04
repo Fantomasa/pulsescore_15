@@ -1,12 +1,9 @@
 "use client";
 
 import { useQuery } from "@tanstack/react-query";
-
-import BasketballEvents from "@/components/Live/Basketball/BasketballEvents";
-import FootballEvents from "@/components/Live/Football/FootballEvents";
-import TennisEvents from "@/components/Live/Tennis/TennisEvents";
-import { SPORTS } from "./constants";
 import { LiveEventsResult } from "@/services/live-score/schemas";
+
+import SportEvents from "./SportEvents";
 import Spinner from "../common/Spinner";
 
 export default function LiveScoreComponent({ sport }: { sport: string }) {
@@ -20,10 +17,12 @@ export default function LiveScoreComponent({ sport }: { sport: string }) {
     refetchInterval: 5000
   });
 
-  if (isLoading) return;
-  <div className="w-full mx-auto">
-    <Spinner />
-  </div>;
+  if (isLoading)
+    return (
+      <div className="w-full mx-auto">
+        <Spinner />
+      </div>
+    );
 
   if (isError || !liveData || (liveData && liveData?.total <= 0)) {
     return (
@@ -33,12 +32,5 @@ export default function LiveScoreComponent({ sport }: { sport: string }) {
     );
   }
 
-  return (
-    <>
-      {/* {JSON.stringify(liveData)} */}
-      {sport === SPORTS.FOOTBALL.lower && liveData && <FootballEvents liveEvents={liveData} />}
-      {sport === SPORTS.BASKETBALL.lower && liveData && <BasketballEvents liveEvents={liveData} />}
-      {sport === SPORTS.TENNIS.lower && liveData && <TennisEvents liveEvents={liveData} />}
-    </>
-  );
+  return <>{liveData && <SportEvents liveEvents={liveData} />}</>;
 }
