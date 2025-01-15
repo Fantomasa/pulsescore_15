@@ -11,7 +11,7 @@ export default function TennisEvent({ event }: { event: SingleLiveEventSchema })
     <div className="flex flex-row items-center gap-4 p-4 rounded-md bg-secondary my-2 text-sm">
       {/* Timer or match period */}
       <div className="w-1/5 text-center">
-        <p className={`text-xs`}>{event.scoreboard.period}</p>
+        <p className={`text-xs`}>{event.scoreboard?.period}</p>
       </div>
 
       {/* Team names */}
@@ -25,7 +25,7 @@ export default function TennisEvent({ event }: { event: SingleLiveEventSchema })
         <div className="flex flex-col w-2/5 justify-center">
           <div id="home" className="flex items-center gap-4 justify-center">
             <ul className="flex gap-1 min-w-[60px]">
-              {score.homeGames.map((x, idx) => (
+              {score.homeGames?.map((x, idx) => (
                 <li className="min-w-[16px] text-center" key={idx}>
                   {x}
                 </li>
@@ -35,7 +35,7 @@ export default function TennisEvent({ event }: { event: SingleLiveEventSchema })
           </div>
           <div id="away" className="flex items-center gap-4 justify-center">
             <ul className="flex gap-1 min-w-[60px]">
-              {score.awayGames.map((x, idx) => (
+              {score.awayGames?.map((x, idx) => (
                 <li className="min-w-[16px] text-center" key={idx}>
                   {x}
                 </li>
